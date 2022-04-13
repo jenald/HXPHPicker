@@ -296,9 +296,13 @@ open class VideoEditorViewController: BaseViewController {
     }()
     lazy var topView: UIView = {
         let view = UIView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+        let backImageView = UIImageView(image: UIImage.image(for: "hx_editor_back"))
+        backImageView.contentMode = .scaleAspectFit
+        backImageView.frame = CGRect(origin: .init(x: 16, y: 0), size: .init(width: 24, height: 24))
         let cancelBtn = UIButton.init(frame: CGRect(x: 0, y: 0, width: 57, height: 44))
-        cancelBtn.setImage(UIImage.image(for: "hx_editor_back"), for: .normal)
+        cancelBtn.backgroundColor = .clear
         cancelBtn.addTarget(self, action: #selector(didBackClick), for: .touchUpInside)
+        view.addSubview(backImageView)
         view.addSubview(cancelBtn)
         return view
     }()
