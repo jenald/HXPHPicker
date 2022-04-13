@@ -150,7 +150,7 @@ public class EditorToolView: UIView {
     }
 }
 
-extension EditorToolView: UICollectionViewDataSource, UICollectionViewDelegate, EditorToolViewCellDelegate {
+extension EditorToolView: UICollectionViewDataSource, UICollectionViewDelegate, EditorToolViewCellDelegate, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         config.toolOptions.count
     }
@@ -191,6 +191,14 @@ extension EditorToolView: UICollectionViewDataSource, UICollectionViewDelegate, 
         didSelectItemAt indexPath: IndexPath
     ) {
         collectionView.deselectItem(at: indexPath, animated: false)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let model = config.toolOptions[indexPath.item]
+        switch model.type {
+        case .cropTime: return CGSize(width: 80, height: 50)
+        default: return CGSize(width: 30, height: 50)
+        }
     }
     
     func toolViewCell(didClick cell: EditorToolViewCell) {
