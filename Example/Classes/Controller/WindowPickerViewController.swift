@@ -87,11 +87,11 @@ class WindowPickerViewController: UIViewController {
             ),
             for: .disabled
         )
-        button.layer.cornerRadius = 3
+        button.layer.cornerRadius = 17
         button.layer.masksToBounds = true
         button.isEnabled = false
         button.addTarget(self, action: #selector(didFinishButtonClick(button:)), for: .touchUpInside)
-        button.frame = CGRect(x: view.hx.width - 12 - 60, y: 0, width: 60, height: 33)
+        button.frame = CGRect(x: view.hx.width - 12 - 60, y: 0, width: 60, height: 34)
         button.hx.centerY = 25
         return button
     }()

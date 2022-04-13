@@ -42,7 +42,7 @@ public class EditorCropConfirmView: UIView {
         let finishButton = UIButton.init(type: .custom)
         finishButton.setTitle("完成".localized, for: .normal)
         finishButton.titleLabel?.font = UIFont.mediumPingFang(ofSize: 16)
-        finishButton.layer.cornerRadius = 3
+        finishButton.layer.cornerRadius = 17
         finishButton.layer.masksToBounds = true
         finishButton.addTarget(self, action: #selector(didFinishButtonClick(button:)), for: .touchUpInside)
         return finishButton
@@ -146,7 +146,7 @@ public class EditorCropConfirmView: UIView {
             finishWidth = 60
         }
         finishButton.width = finishWidth
-        finishButton.height = 33
+        finishButton.height = 34
         finishButton.x = width - finishButton.width - 12 - UIDevice.rightMargin
         finishButton.centerY = 25
         

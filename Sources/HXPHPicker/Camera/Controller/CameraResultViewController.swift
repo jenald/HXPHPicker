@@ -55,7 +55,7 @@ class CameraResultViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("完成".localized, for: .normal)
         button.titleLabel?.font = UIFont.mediumPingFang(ofSize: 16)
-        button.layer.cornerRadius = 3
+        button.layer.cornerRadius = 17
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(didDoneButtonClick(button:)), for: .touchUpInside)
         button.backgroundColor = color
@@ -137,7 +137,7 @@ class CameraResultViewController: UIViewController {
             doneWidth = 60
         }
         doneButton.width = doneWidth
-        doneButton.height = 33
+        doneButton.height = 34
         doneButton.x = view.width - doneWidth - 12 - UIDevice.rightMargin
         doneButton.centerY = view.height - UIDevice.bottomMargin - 25
         if let nav = navigationController {
