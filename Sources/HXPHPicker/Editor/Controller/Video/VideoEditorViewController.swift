@@ -580,6 +580,7 @@ open class VideoEditorViewController: BaseViewController {
     }
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        pickerController?.viewControllersWillDisappear(self)
         if navigationController?.topViewController != self &&
             navigationController?.viewControllers.contains(self) == false {
             navigationController?.setNavigationBarHidden(false, animated: true)
@@ -587,6 +588,7 @@ open class VideoEditorViewController: BaseViewController {
     }
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        pickerController?.viewControllersWillAppear(self)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     deinit {
