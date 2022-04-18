@@ -500,16 +500,17 @@ extension PhotoPickerController {
                             arguments: [config.maximumSelectedVideoDuration]
                         )
                         canSelect = false
-                    }else {
-                        if config.maximumVideoEditDuration > 0 &&
-                            round(photoAsset.videoDuration) > Double(config.maximumVideoEditDuration) {
-                            text = String(
-                                format: "视频可编辑最大时长为%d秒，无法编辑".localized,
-                                arguments: [config.maximumVideoEditDuration]
-                            )
-                            canSelect = false
-                        }
                     }
+//                    else {
+//                        if config.maximumVideoEditDuration > 0 &&
+//                            round(photoAsset.videoDuration) > Double(config.maximumVideoEditDuration) {
+//                            text = String(
+//                                format: "视频可编辑最大时长为%d秒，无法编辑".localized,
+//                                arguments: [config.maximumVideoEditDuration]
+//                            )
+//                            canSelect = false
+//                        }
+//                    }
                     #else
                     text = String(
                         format: "视频最大时长为%d秒，无法选择".localized,
