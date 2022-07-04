@@ -177,20 +177,11 @@ public class PhotoPreviewViewController: BaseViewController {
     lazy var bottomView: PhotoPickerBottomView = {
         let bottomView = PhotoPickerBottomView(
             config: config.bottomView,
-            allowLoadPhotoLibrary: allowLoadPhotoLibrary,
-            isMultipleSelect: isMultipleSelect,
-            sourceType: isExternalPreview ? .browser : .preview
+            allowLoadPhotoLibrary: allowLoadPhotoLibrary
         )
+        bottomView.selectedView.reloadData(photoAssets: pickerController!.selectedAssetArray)
         bottomView.hx_delegate = self
-        if config.bottomView.showSelectedView && (isMultipleSelect || isExternalPreview) {
-            bottomView.selectedView.reloadData(
-                photoAssets: pickerController!.selectedAssetArray
-            )
-        }
-        if !isExternalPreview {
-            bottomView.boxControl.isSelected = pickerController!.isOriginal
-            bottomView.requestAssetBytes()
-        }
+        bottomView.boxControl.isSelected = pickerController!.isOriginal
         return bottomView
     }()
     var requestPreviewTimer: Timer?

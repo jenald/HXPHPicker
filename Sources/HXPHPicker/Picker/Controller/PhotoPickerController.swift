@@ -170,7 +170,8 @@ open class PhotoPickerController: UINavigationController {
         super.init(nibName: nil, bundle: nil)
         pickerDelegate = delegate
         let vc = PhotoPreviewViewController(config: config.previewView)
-        vc.isExternalPreview = true
+        vc.isExternalPreview = false
+        vc.isMultipleSelect = false
         vc.currentPreviewIndex = currentIndex
         self.viewControllers = [vc]
         self.modalPresentationStyle = modalPresentationStyle
