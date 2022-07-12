@@ -194,11 +194,7 @@ extension EditorToolView: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let model = config.toolOptions[indexPath.item]
-        switch model.type {
-        case .cropTime: return CGSize(width: 80, height: 50)
-        default: return CGSize(width: 30, height: 50)
-        }
+        return CGSize(width: 40, height: 50)
     }
     
     func toolViewCell(didClick cell: EditorToolViewCell) {
