@@ -461,8 +461,10 @@ extension PhotoPickerController {
                     canSelect = false
                 }
             }
+            
             if config.maximumSelectedPhotoCount > 0 {
-                if selectedPhotoAssetArray.count >= config.maximumSelectedPhotoCount {
+                let photoCount = selectedAssetArray.filter({ $0.mediaType == .photo }).count
+                if photoCount >= config.maximumSelectedPhotoCount {
                     text = String.init(format: "最多只能选择%d张照片".localized, arguments: [config.maximumSelectedPhotoCount])
                     canSelect = false
                 }
@@ -536,11 +538,12 @@ extension PhotoPickerController {
                 }
             }
             if config.maximumSelectedVideoCount > 0 {
-                if selectedVideoAssetArray.count >= config.maximumSelectedVideoCount {
+                let videoCount = selectedAssetArray.filter({ $0.mediaType == .video }).count
+                if videoCount >= config.maximumSelectedVideoCount {
                     text = String.init(format: "最多只能选择%d个视频".localized, arguments: [config.maximumSelectedVideoCount])
                     canSelect = false
                 }
-            }else {
+            } else {
                 if selectedAssetArray.count >= config.maximumSelectedCount && config.maximumSelectedCount > 0 {
                     text = String.init(format: "已达到最大选择数".localized, arguments: [config.maximumSelectedPhotoCount])
                     canSelect = false
@@ -562,6 +565,11 @@ extension PhotoPickerController {
     ) -> Bool {
         var canSelect = true
         var text: String?
+        
+        if selectedAssetArray.count >= config.maximumSelectedCount {
+            return false
+        }
+        
         if photoAsset.mediaType == .photo {
             let result = canSelectPhoto(photoAsset)
             canSelect = result.0
