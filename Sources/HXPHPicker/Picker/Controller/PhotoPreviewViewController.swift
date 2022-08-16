@@ -439,6 +439,8 @@ extension PhotoPreviewViewController {
                 }else {
                     bottomHeight = UIDevice.bottomMargin + 50
                 }
+            } else if !config.bottomView.editButtonHidden {
+                bottomHeight = 50 + UIDevice.bottomMargin + 70
             }
             #endif
         }else {
