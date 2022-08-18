@@ -41,9 +41,9 @@ public struct VideoEditResult {
     public let cropData: VideoCropData?
     
     /// 尺寸裁剪状态数据
-    let sizeData: VideoEditedCropSize?
+    public let sizeData: VideoEditedCropSize?
     
-    init(
+    public init(
         editedURL: URL,
         cropData: VideoCropData?,
         hasOriginalSound: Bool,
@@ -110,7 +110,7 @@ public struct VideoCropData: Codable {
     }
 }
 
-struct VideoEditedCropSize: Codable {
+public struct VideoEditedCropSize: Codable {
     let isPortrait: Bool
     let cropData: PhotoEditCropData?
     let brushData: [PhotoEditorBrushData]
