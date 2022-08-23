@@ -185,14 +185,14 @@ class VideoEditorMusicView: UIView {
         super.init(frame: .zero)
         setMusics(infos: config.infos)
         layer.addSublayer(bgMaskLayer)
-        addSubview(collectionView)
-        if config.showSearch {
-            addSubview(searchBgView)
-        }
-        addSubview(volumeBgView)
-        addSubview(backgroundButton)
+        // addSubview(collectionView)
+        // if config.showSearch {
+        //    addSubview(searchBgView)
+        // }
+        // addSubview(volumeBgView)
+        // addSubview(backgroundButton)
         addSubview(originalSoundButton)
-        addSubview(showLyricButton)
+        // addSubview(showLyricButton)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(appDidEnterBackground),
