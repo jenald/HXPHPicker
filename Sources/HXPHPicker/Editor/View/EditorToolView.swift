@@ -31,8 +31,8 @@ public class EditorToolView: UIView {
         let flowLayout = UICollectionViewFlowLayout.init()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 15
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.itemSize = CGSize(width: 30, height: 50)
+        flowLayout.minimumInteritemSpacing = 20
+        flowLayout.itemSize = CGSize(width: 40, height: 41)
         return flowLayout
     }()
     
@@ -194,7 +194,7 @@ extension EditorToolView: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 40, height: 50)
+        return CGSize(width: 40, height: 41)
     }
     
     func toolViewCell(didClick cell: EditorToolViewCell) {
