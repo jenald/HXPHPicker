@@ -132,7 +132,8 @@ extension PhotoManager: URLSessionDownloadDelegate {
             }
         }else {
             let url: URL
-            if key.hasSuffix("mp4") || key.hasSuffix("MP4") {
+            // key.contains("mp4") || key.hasSuffix("MP4"): Consideration of videos with query parameter
+            if key.hasSuffix("mp4") || key.hasSuffix("MP4") || key.contains("mp4") || key.hasSuffix("MP4") {
                 let videoURL = PhotoTools.getVideoCacheURL(for: key)
                 PhotoTools.removeFile(fileURL: videoURL)
                 try? FileManager.default.moveItem(at: location, to: videoURL)
